@@ -1,0 +1,64 @@
+\documentclass[pdftex,12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\addto{\captionsenglish}{
+  \renewcommand{\bibname}{References}
+}
+\usepackage{graphicx,mathptmx}
+\usepackage{geometry}
+\geometry{
+a4paper,
+left=35mm,
+right=30mm,
+top=30mm,
+bottom=30mm,
+}
+\usepackage{setspace}
+\onehalfspacing
+
+
+% start of report
+\begin{document}
+
+
+% cover
+\input{cover_page}
+% title page
+\input{title_page}
+% table of content
+\renewcommand*\contentsname{Table of Contents}
+\tableofcontents
+
+
+% abstract
+\setcounter{page}{1}
+\pagenumbering{roman}
+\input{abstract}
+% acknowledgement
+\input{acknowledgements}
+% list of tables
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+% list of figures
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+
+% Main Content
+\cleardoublepage
+\pagenumbering{arabic}
+% introduction
+\input{./contents/introduction}
+% other chapters
+\input{./contents/other_chapters}
+
+
+
+% references
+\bibliographystyle{unsrt}
+\bibliography{reference}
+\addcontentsline{toc}{chapter}{References}
+
+%appendix
+\end{document}
